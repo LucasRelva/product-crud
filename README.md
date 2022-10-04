@@ -1,4 +1,4 @@
-# API Rest - Email Sender
+# API Rest - Product Crud
 
 ## Para rodar essa aplicação é nescessário:
 
