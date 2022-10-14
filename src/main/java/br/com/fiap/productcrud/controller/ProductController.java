@@ -18,6 +18,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
+    @CrossOrigin
     @PostMapping
     @Transactional
     public ResponseEntity<ProductDto> create(@RequestBody ProductDto product, UriComponentsBuilder uriBuilder) {
@@ -27,6 +28,7 @@ public class ProductController {
         return ResponseEntity.created(uri).body(savedMail);
     }
 
+    @CrossOrigin
     @GetMapping
     public  ResponseEntity<?> findAll() {
         List<ProductDto> response = service.findAll();
@@ -37,7 +39,8 @@ public class ProductController {
 
         return ResponseEntity.ok(response);
     }
-
+    
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<?> detail(@PathVariable(required = true, value = "id") Integer id) {
         ProductDto response = service.detail(id);
@@ -49,6 +52,7 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity<?> delete(@PathVariable(required = true, value = "id") Integer id) {
@@ -61,6 +65,7 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<?> update(@PathVariable(required = true, value = "id") Integer id, @RequestBody ProductDto product) {
